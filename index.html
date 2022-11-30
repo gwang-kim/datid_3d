@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DATID-3D: Diversity-Preserved Domain Adaptation Using Text-to-Image Diffusion for 3D Generative Model">
+  <meta name="keywords" content="DATID-3D, Text-guided Domain Adaptation, 3D Generative Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DATID-3D: Diversity-Preserved Domain Adaptation Using Text-to-Image Diffusion for 3D Generative Model</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/happy_favicon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://gwang-kim.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/gwang-kim/DiffusionCLIP">
+            DiffusionCLIP
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DATID-3D: Diversity-Preserved Domain Adaptation Using Text-to-Image Diffusion for 3D Generative Model</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://gwang-kim.github.io/">Gwanghyun Kim</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://icl.snu.ac.kr/pi">Se Young Chun</a><sup>1,2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Dept. of Electrical and Computer Engineering,</span>
+            <span class="author-block"><sup>2</sup>INMC, Interdisciplinary Program in AI</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Seoul National University, Korea</span>
+          </div>
+
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2211.16374.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2211.16374"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href="https://www.youtube.com/"-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fab fa-youtube"></i>-->
+<!--                  </span>-->
+<!--                  <span>Video</span>-->
+<!--                </a>-->
+<!--              </span>-->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/gwang-kim/DATID-3D"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+            <h2 class="title is-3">Video</h2>
+        </div>
+      </div>
+
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/Supplementary_video_DATID-3D.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <p>
+        <b> DATID-3D </b> succeeded in text-guided domain adaptation of 3D-aware generative models while <b>preserving diversity that is inherent in the text prompt</b>  as well as <b>enabling high-quality pose-controlled image synthesis with excellent text-image correspondence</b> .
+        </p>
+
+<!--        <p>-->
+<!--        However, 3D extensions of the state-of-the-art domain-adaptation methods for 2D generative models yielded alike images in style with poor text-image correspondence.-->
+<!--        </p>-->
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered", style='background-color: #F7F7F7'>
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent 3D generative models have achieved remarkable performance in synthesizing high resolution photorealistic images with view consistency and detailed 3D shapes, but training them for diverse domains is challenging since it requires massive training images and their camera distribution information.
+          </p>
+
+          <p>
+            Text-guided domain adaptation methods have shown impressive performance on converting the 2D generative model on one domain into the models on other domains with different styles by leveraging the CLIP (Contrastive Language-Image Pre-training), rather than collecting massive datasets for those domains.
+            However, one drawback of them is that the sample diversity in the original generative model is not well-preserved in the domain-adapted generative models due to the deterministic nature of the CLIP text encoder.
+            Text-guided domain adaptation will be even more challenging for 3D generative models not only because of catastrophic diversity loss, but also because of inferior text-image correspondence and poor image quality.
+          </p>
+
+          <p>
+            <b> Here we propose DATID-3D, a novel pipeline of text-guided domain adaptation tailored for 3D generative models using text-to-image diffusion models that can synthesize diverse images per text prompt without collecting additional images and camera information for the target domain.</b>
+            Unlike 3D extensions of prior text-guided domain adaptation methods, our novel pipeline was able to fine-tune the state-of-the-art 3D generator of the source domain to synthesize high resolution, multi-view consistent images in text-guided targeted domains without additional data, outperforming the existing text-guided domain adaptation methods in diversity and text-image correspondence.
+            Furthermore, we propose and demonstrate diverse 3D image manipulations such as one-shot instance-selected adaptation and single-view manipulated 3D reconstruction to fully enjoy diversity in text.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+ <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+          <div className="container is-max-desktop">
+              <img id="overview"
+                      height={"100%"}
+                      src="./static/images/method1.png"
+                      alt={"overview"}>
+              </img>
+              <h2 className="subtitle has-text-centered">
+                  Overview of DATID-3D, our novel pipeline for text-guided domain adaptation of 3D generative models. We construct target dataset using the pre-trained text-to-image diffusion models, followed by refining the dataset through filtering process. Finally, we fine-tune our models using adversarial loss and density regularization.
+              </h2>
+          </div>
+
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Pose-controlled images and 3D shapes</h2>
+
+          <div className="item is-max-desktop">
+              <img id="result4"
+                      style="width:100%;height:auto;"
+                      src="./static/images/method1-result4.png"
+                      alt={"result1"}>
+          </div>
+
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Instance-selected domain adaptation</h2>
+
+          <div className="container is-max-desktop">
+              <img id="instance_selected"
+                      style="width:60%;height:auto;"
+                      src="./static/images/method2.png"
+                      alt={"instance_selected"}>
+              </img>
+              <h2 className="subtitle has-text-centered">
+                  One-shot fine-tuning of text-to-image diffusion models for instance-selected domain adaptation. Resulting text-to-image diffusion models are applied to the Stage 1.
+              </h2>
+          </div>
+
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+          <div className="item is-max-desktop">
+              <img id="result5"
+                      style="width:60%;height:auto;"
+                      src="./static/images/method2-result1.png"
+                      alt={"result1"}>
+              </img>
+              <h2 className="subtitle has-text-centered">
+                  Results of instance-selected domain adaptation, selecting one Pixar sample to generate more diverse samples for it.
+              </h2>
+          </div>
+
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Single-view 3D manipulated reconstruction</h2>
+
+          <div className="item is-max-desktop">
+              <img id="result6"
+                      style="width:60%;height:auto;"
+                      src="./static/images/method2-result2.png"
+                      alt={"result1"}>
+              </img>
+              <h2 className="subtitle has-text-centered">
+                  As advancements of prior 2D text-guided image manipulation, our method enables (1) lifting the text-guided manipulated images to 3D and (2) choosing one among diverse results from one text prompt.
+              </h2>
+          </div>
+
+      </div>
+    </div>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Wide range of text-guided adaption results</h2>
+
+          <div className="item is-max-desktop">
+              <img id="result1"
+                      style="width:100%;height:auto;"
+                      src="./static/images/method1-result1.png"
+                      alt={"result1"}>
+              </img>
+<!--              <h2 className="subtitle has-text-centered">-->
+<!--                  One-shot fine-tuning of text-to-image diffusion models for instance-selected domain adaptation. Resulting text-to-image diffusion models are applied to the Stage 1.-->
+<!--              </h2>-->
+          </div>
+
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+          <div className="item is-max-desktop">
+              <img id="result2"
+                      style="width:100%;height:auto;"
+                      src="./static/images/method1-result2.png"
+                      alt={"result1"}>
+              </img>
+<!--              <h2 className="subtitle has-text-centered">-->
+<!--                  One-shot fine-tuning of text-to-image diffusion models for instance-selected domain adaptation. Resulting text-to-image diffusion models are applied to the Stage 1.-->
+<!--              </h2>-->
+          </div>
+
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+          <div className="item is-max-desktop">
+              <img id="result3"
+                      style="width:100%;height:auto;"
+                      src="./static/images/method1-result3.png"
+                      alt={"result1"}>
+
+          </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{kim2022datid3d,
+      title={DATID-3D: Diversity-Preserved Domain Adaptation Using Text-to-Image Diffusion for 3D Generative Model},
+      author={Gwanghyun Kim and Se Young Chun},
+      year={2022},
+      eprint={2211.16374},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+<!--      <a class="icon-link"-->
+<!--         href="">-->
+<!--        <i class="fas fa-file-pdf"></i>-->
+<!--      </a>-->
+      <a class="icon-link" href="https://github.com/gwang-kim" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
